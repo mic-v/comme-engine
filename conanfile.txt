@@ -1,0 +1,11 @@
+[requires]
+glfw/3.3.4
+imgui/1.84.2
+
+
+[options]
+
+[generators]
+cmake
+cmake_paths
+cmake_find_package
