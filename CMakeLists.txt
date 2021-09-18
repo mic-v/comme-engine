@@ -10,5 +10,6 @@ message(${CMAKE_MODULE_PATH})
 include(cmake/conan_paths.cmake)
 # Include sub-projects.
 
-add_subdirectory ("thirdparty")
+
 add_subdirectory ("comme_engine")
+add_subdirectory ("thirdparty")
