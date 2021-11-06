@@ -10,6 +10,12 @@ message(${CMAKE_MODULE_PATH})
 include(cmake/conan_paths.cmake)
 # Include sub-projects.
 
-
 add_subdirectory ("comme_engine")
 add_subdirectory ("thirdparty")
+
+# Warnings
+if(MSVC)
+  target_compile_options(comme_engine PRIVATE /W4)
+else()
+  target_compile_options(comme_engine PRIVATE -Wall -Wextra -Wpedantic -Werror)
+endif()

@@ -8,6 +8,8 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
+#include <main_loop.h>
+
 
 static void setupWindowHints()
 {
@@ -18,13 +20,9 @@ static void setupWindowHints()
 	glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GL_TRUE);
 }
 
-static void showMenuBar()
-{
-	ImGui::BeginMainMenuBar();
-}
-
 int main()
 {
+
 	if (!glfwInit())
 	{
 		std::cout << "Test failed" << std::endl;
@@ -57,7 +55,6 @@ int main()
 	ImGui_ImplGlfw_InitForOpenGL(window, true);
 	ImGui_ImplOpenGL3_Init("#version 150");
 
-	float f = 0.0f;
 	while (!glfwWindowShouldClose(window))
 	{
 		glfwPollEvents();
@@ -74,10 +71,24 @@ int main()
 			{
 				ImGui::MenuItem("Exit");
 				ImGui::EndMenu();
+				ImGui::Separator();
 			}
-
+			if (ImGui::BeginMenu("Create"))
+			{
+				ImGui::EndMenu();
+				ImGui::Separator();
+			}
+			if (ImGui::BeginMenu("View"))
+			{
+				ImGui::EndMenu();
+				ImGui::Separator();
+			}
+			if (ImGui::BeginMenu("Edit"))
+			{
+				ImGui::EndMenu();
+				ImGui::Separator();
+			}
 		}
-		ImGui::Separator();
 		ImGui::EndMainMenuBar();
 
 
